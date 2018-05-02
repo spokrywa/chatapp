@@ -116,7 +116,7 @@ class ClientHandler implements Runnable
                     this.name = temp;
                 }
 
-                //broadcast message if no @ or & delimiter
+                //broadcast message if no @, &, * delimiters
                 if(!received.startsWith("&") && !received.startsWith("*") )
                 {
                    for (ClientHandler mc : Server.ar)
