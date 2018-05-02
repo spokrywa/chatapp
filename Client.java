@@ -3,19 +3,23 @@ import java.util.Scanner;
 import java.net.*;
 
 public class Client {
-    final static  int ServerPort = 1234;
 
     public static void main(String args[]) throws UnknownHostException, IOException
     {
         Scanner scn = new Scanner(System.in);
 
-        InetAddress ip = InetAddress.getByName("localhost");
+        System.out.println("Server IP: ");
+        InetAddress ip = InetAddress.getByName(scn.next());
+        System.out.println("Server port: ");
+        final int ServerPort = Integer.parseInt(scn.next());
+
 
         Socket s = new Socket(ip, ServerPort);
 
         DataInputStream dis = new DataInputStream(s.getInputStream());
         DataOutputStream dos = new DataOutputStream(s.getOutputStream());
 
+        
         Thread sendMessage = new Thread(new Runnable() {
             @Override
             public void run() {
