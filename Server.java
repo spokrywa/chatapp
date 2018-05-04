@@ -5,12 +5,15 @@ import java.net.*;
 public class Server
 {
     static Vector<ClientHandler> ar = new Vector<>();
-
     static int i = 0;
 
     public static void main(String[] args) throws IOException
     {
-        ServerSocket ss = new ServerSocket(1234);
+
+	Scanner scn = new Scanner(System.in);
+	System.out.println("Enter port to start server with: ");
+	final int ServerPort = Integer.parseInt(scn.next());
+        ServerSocket ss = new ServerSocket(ServerPort);
         Socket s;
 
         while(true)
