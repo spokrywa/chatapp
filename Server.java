@@ -77,6 +77,11 @@ class ClientHandler implements Runnable
 
                 if(received.equals("logout"))
                 {
+                    for (ClientHandler mc : Server.ar)
+                    {
+                        mc.dos.writeUTF(this.name+" has logged out" );
+                    }
+                    System.out.println(this.name + " has disconnected from the server");
                     this.isloggedin=false;
                     this.s.close();
                     Server.ar.remove(this);
